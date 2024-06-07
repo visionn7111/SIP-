@@ -1,6 +1,6 @@
 # 1. SIP 호 설립 절차(No.1 ~ No.5)
 
-![스크린샷 2024-06-06 오후 7.04.14.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/cdc0249a-2dac-4b2d-aa6d-4488143302f3/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.04.14.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/c22504a8-5cfd-495d-a0cc-01fc72b8f481)
 
 Wireshark에서 위 패킷을 보면 No.1~No.5 의 패킷이 세션을 설립하는 과정인 것을 확인할 수 있다. 위 상단바를 순서대로 설명한다면
 
@@ -20,8 +20,9 @@ Wireshark에서 위 패킷을 보면 No.1~No.5 의 패킷이 세션을 설립하
 
 - **INVITE 요청 메시지 header**
     
-    ![스크린샷 2024-06-06 오후 7.04.39.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/2008f655-2b4c-4ede-b388-1bbeaf8aae27/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.04.39.png)
-    
+  
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/933b80ac-16b7-41d1-a69c-460e99dbc608)
+
     SIP Header를 보면 편지 봉투와 유사한 형태의 정보를 알 수 있다.
     
     **1) sip:test@10.0.2.15:5060 SIP/2.0** 
@@ -56,7 +57,8 @@ Wireshark에서 위 패킷을 보면 No.1~No.5 의 패킷이 세션을 설립하
     
     SDP 메시지를 생성한 Owner/creator를 표시한다. 순서대로 Owner Username, Session-ID, Session Version, Network Type, Address Type, Unicast Address를 나타내며 아래 사진과 같이 정보를 확인할 수 있다.
     
-    ![스크린샷 2024-06-06 오후 7.05.21.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/a0f759fb-47ad-43f7-8ac3-e0dda2165b89/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.05.21.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/a1f9508b-5ed3-4153-bda1-7460bd40b2ef)
+
     
     **3) Session Name (s): -**
     
@@ -66,7 +68,8 @@ Wireshark에서 위 패킷을 보면 No.1~No.5 의 패킷이 세션을 설립하
     
     순서대로 Network Type, Address type, Connection-Address이며, RTP 프로토콜이 사용할 주소를 정의 한다.
     
-    ![스크린샷 2024-06-06 오후 7.05.37.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/9fe75ef1-55af-4d9a-ac11-af244077d1b9/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.05.37.png)
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/7358fa1c-9962-46d4-8df1-f8770bab17be)
+
     
     **5) Time Description, active time (t): 0 0**
     
@@ -89,7 +92,8 @@ Wireshark에서 위 패킷을 보면 No.1~No.5 의 패킷이 세션을 설립하
 
 ## 1-2 No.2 (100 Trying) 패킷
 
-![스크린샷 2024-06-06 오후 7.06.29.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/91518ee7-2aef-44e8-b588-3556e566a67b/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.06.29.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/4d1c657b-7c99-4cdc-8e11-de12f01db07a)
+
 
 No.2 의 패킷인 이 패킷은 100 Trying의 SIP Response이다. 수신된 요청을 다음 서버로 전송하거나 처리중이라는 뜻이다. 일반적으로 100Trying은 INVITE 요청을 받자마자자 발행된다. 최종 응답인 200 OK를 발행하기 까지지 처리시간이 오래 걸리기 때문이다. 추가로 100 Trying 헤더의 branch 값과 INVITE 헤더의 branch 값이 동일하기 때문에 같은 트랜잭션이라는 것을 알 수 있다.
 
@@ -103,13 +107,15 @@ No.2 의 패킷인 이 패킷은 100 Trying의 SIP Response이다. 수신된 요
 
 - **200 OK 메시지 header**
     
-    ![스크린샷 2024-06-06 오후 7.07.02.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/6d251bba-a543-4362-9908-cacfa209893a/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.07.02.png)
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/87c8eed8-6281-4d07-82b2-bfa1db060f6e)
+
     
     From 헤더와 To 헤더 값이 바뀌지 않고 SIP INVITE 메시지의 헤더의 값이 동일하다 또한 CSeq 헤더는 INVITE 헤더의 값과 동일한 1 INVITE이다. CSeq는 SIP 패킷 캡처 시에 여러 호가 동시에 진행되더라도 어떤 요청에 대한 200 OK 응답인지를 분석할 수 있다.
     
 - **200 OK 메시지 body**
     
-    ![스크린샷 2024-06-06 오후 7.07.27.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/2b65e8a4-4ae2-4f48-b90e-f015f70b1988/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.07.27.png)
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/f2fe921f-e744-45b6-92bd-372c65dc9f27)
+
     
     **1) Media Description, name and address (m): audio 30490 RTP/AVP 5 101**
     
@@ -138,7 +144,8 @@ No.2 의 패킷인 이 패킷은 100 Trying의 SIP Response이다. 수신된 요
 
 ## 1-5 No.5 (ACK) 패킷
 
-![스크린샷 2024-06-06 오후 7.07.56.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/a7e02bf3-406d-4d1a-9477-484288658dd5/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.07.56.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/4645d2e4-eb17-459e-ab1c-8d0b47060822)
+
 
 수신자의 전화기가 200 OK를 수신하였음을 확인하는 ACK를 전송한다.
 
@@ -146,23 +153,24 @@ CSeq 헤더 값이 1 이므로 앞의 200 OK에 대한 ACK임을 확인할 수 �
 
 # 2. RTP로 전송된 오디오 스트림(No.6 ~ No.431)
 
-![스크린샷 2024-06-06 오후 7.18.07.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/2b898c1b-7d29-45cd-ad21-a65b3ba63697/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.18.07.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/b354a1de-2c5a-40a9-9789-b835c500734b)
+
 
 이 RTP 패킷은 DVI4 코덱을 사용하고, 샘플링 주파수는 8000Hz이다. SSRC는 0x43DAB09로, 패킷 시퀀스 번호와 타임스탬프가 각각 시간에 따라 분류되었음을 알 수 있다. 이러한 패킷들은 오디오 데이터를 네트워크를 통해 전송하는데 사용될 수 있다. 즉, 앞에서의 호 설립 절차가 정상적으로 작동하여 통화중을 나타낸다.
 
 # 3. SIP 호 종료 절차(No. 432 ~ N0. 433)
 
-![스크린샷 2024-06-06 오후 7.20.51.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/e97733d4-f9ca-4f49-9c43-19a3d3b4fd0e/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.20.51.png)
-
 ## 3-1 No.432 (BYE) 패킷
 
-![스크린샷 2024-06-06 오후 7.22.48.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/b08e69d7-a36a-48d1-93c4-87ba9afab818/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.22.48.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/e048530f-6080-4690-be15-8cafebee3318)
+
 
 BYE 세션은 발신자와 수신자 누구나 생성 할 수 있다. 전화기의 훅 스위치에 수화기를 올려 놓는 쪽에서 BYE가 전송된다. 세션 종료 절차는 새롭게 시작하는 다이얼로그이자 트랜잭션이므로 CSeq의 헤더 값이 다르다. 위 헤더의 정보로 From 헤더와 To 헤더의 값에서 알 수 있듯이 세션 종료 절차의 진행 방향이 반대로 바뀐 것을 알 수 있다 따라서 “Test”사용자가 호 종료를 진행 한 것을 볼 수 있다.
 
 ## 3-2 No.433 (200 OK) 패킷
 
-![스크린샷 2024-06-06 오후 7.26.53.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/8ee16101-4b68-418a-bea3-428ce89d6bce/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.26.53.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/fb12a6d9-f0ac-44b8-b7a8-694bd190a115)
+
 
 200 OK 패킷은 요청이 정상적으로 성립된 것을 알리는 패킷이다. 위 CSeq를 확인하면 BYE에 대한 요청이 정상적으로 성립되었다. 즉, 전화가 종료 된것을 알 수 있다.
 
@@ -174,8 +182,8 @@ BYE 세션은 발신자와 수신자 누구나 생성 할 수 있다. 전화기�
 
 - **INVITE 요청 메시지 header**
     
-    ![스크린샷 2024-06-06 오후 7.37.27.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/8962bcc8-d9ce-433d-8bef-b017b1b0afca/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.37.27.png)
-    
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/34f1f319-b4d1-4ba9-b061-d0f28f117bd0)
+
     **1) Request-Line: INVITE sip:test@10.0.2.15:5060 SIP/2.0**
     
     메시지 첫줄에는 Method와 메시지를 수신하는 최종 단말의 주소와 버전이 명기된다. 따라서 SIP 클라이언트는 'test' 사용자에게 통화요청을 보낸다. 이 요청은 '10.0.2.15'의 호스트에서 수신되며, 포트 번호는 '5060'을 통해 처리 된다. SIP 프로토콜의 버전은 2.0이다. 
@@ -198,7 +206,8 @@ BYE 세션은 발신자와 수신자 누구나 생성 할 수 있다. 전화기�
     
 - **INVITE 요청 메시지 body**
     
-    ![스크린샷 2024-06-06 오후 7.40.37.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/dbf9f649-7a7d-41c7-9338-7101a3a048a6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.40.37.png)
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/00dd3a80-65e9-4760-8892-bdc83dce7c18)
+
     
     1) Session Description Protocol Version (v): 0
     
@@ -206,7 +215,8 @@ BYE 세션은 발신자와 수신자 누구나 생성 할 수 있다. 전화기�
     
     2) Owner/Creator, Session Id (o): - 42 42 IN IP4 10.0.2.20
     
-    ![스크린샷 2024-06-06 오후 8.01.40.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/55b7a6c0-00f2-4620-a541-106971015138/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_8.01.40.png)
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/a6ece14b-337e-47dd-9b34-6c54ffa21dfa)
+
     
     SDP 메시지를 생성한 Owner/creator를 표시한다. 순서대로 Owner Username, Session-ID, Session Version, Network Type, Address Type, Unicast Address를 나타내며 아래 사진과 같이 정보를 확인할 수 있다.
     
@@ -237,7 +247,8 @@ BYE 세션은 발신자와 수신자 누구나 생성 할 수 있다. 전화기�
 
 ## 4-2 No.435 (100 Trying) 패킷
 
-![스크린샷 2024-06-06 오후 7.56.57.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/2137b3da-05ab-4fd1-b653-144ce2e2c66d/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.56.57.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/d5c46c82-64ad-4b4f-8b7c-05a128b77625)
+
 
 No.2 의 패킷인 이 패킷은 100 Trying의 SIP Response이다. 수신된 요청을 다음 서버로 전송하거나 처리중이라는 뜻이다. 일반적으로 100Trying은 INVITE 요청을 받자마자자 발행된다. 최종 응답인 200 OK를 발행하기 까지지 처리시간이 오래 걸리기 때문이다.
 
@@ -249,13 +260,15 @@ No.2 의 패킷인 이 패킷은 100 Trying의 SIP Response이다. 수신된 요
 
 - 200 OK 메시지 header
     
-    ![스크린샷 2024-06-06 오후 7.59.39.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/6f9a5c5d-df64-4243-a889-adb99753c06b/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_7.59.39.png)
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/7f0aabc2-49d6-4920-a4f2-32d6a9213524)
+
     
     요청에 대한 처리가 정상적으로 진행 된 것을 알 수 있다. CSeq 를 확인하면 INVITE의 대한 요청임을 확인 할 수 있다.
     
 - 200 OK 메시지 body
     
-    ![스크린샷 2024-06-06 오후 8.03.47.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/eaed8cc3-4b62-4580-b03e-be6320ac9b09/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_8.03.47.png)
+    ![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/9f616e64-fc86-431b-951e-d69fb8b956ce)
+
     
     **1) Media Description, name and address (m): audio 25146 RTP/AVP 6 101**
     
@@ -284,7 +297,8 @@ No.2 의 패킷인 이 패킷은 100 Trying의 SIP Response이다. 수신된 요
 
 ## 4-5 No.438 (ACK) 패킷
 
-![스크린샷 2024-06-06 오후 8.08.36.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/e7376181-2d52-49b0-88ff-92fd46ed64f8/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_8.08.36.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/01a6acc9-cf93-47d2-ae0e-7836a8914985)
+
 
 수신자의 전화기가 200 OK를 수신하였음을 확인하는 ACK를 전송한다.
 
@@ -300,13 +314,15 @@ RTP를 통해 전송된 오디어 데이터를 나타낸다. 이 오디오 데�
 
 ## 6-1 No.865 (BYE) 패킷
 
-![스크린샷 2024-06-06 오후 8.13.24.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/93272b33-bfc3-4050-8248-76364c931a34/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_8.13.24.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/06c63a20-5715-4e0f-a34a-9c652d89fc6a)
+
 
 BYE 세션은 발신자와 수신자 누구나 생성 할 수 있다. 전화기의 훅 스위치에 수화기를 올려 놓는 쪽에서 BYE가 전송된다. 세션 종료 절차는 새롭게 시작하는 다이얼로그이자 트랜잭션이므로 CSeq의 헤더 값이 다르다. 위 헤더의 정보로 From 헤더와 To 헤더의 값에서 알 수 있듯이 세션 종료 절차의 진행 방향이 반대로 바뀐 것을 알 수 있다 따라서 “Test”사용자가 호 종료를 진행 한 것을 볼 수 있다.
 
-## 6-1 No.866 (200 OK) 패킷
+## 6-2 No.866 (200 OK) 패킷
 
-![스크린샷 2024-06-06 오후 8.13.58.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6f3c069e-3fa7-4bc9-8021-ff524a9bbfbd/66891bc2-d010-4602-ad3f-d1a55ccd0f29/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-06-06_%EC%98%A4%ED%9B%84_8.13.58.png)
+![image](https://github.com/visionn7111/SIP-SDP-protocol-example/assets/169283479/b717be10-e827-45f3-8ae3-d690ee56746f)
+
 
 200 OK 패킷은 요청이 정상적으로 성립된 것을 알리는 패킷이다. 위 CSeq를 확인하면 BYE에 대한 요청이 정상적으로 성립되었다. 즉, 전화가 종료 된것을 알 수 있다.
 
